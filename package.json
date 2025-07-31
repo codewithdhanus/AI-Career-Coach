@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "fix-permissions": "icacls . /grant \"%USERNAME%:F\" /t"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.9.10",
@@ -47,6 +48,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/estree": "^1.0.8",
+    "@types/json-schema": "^7.0.15",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "postcss": "^8",
